@@ -58,4 +58,10 @@ mv composer.phar /usr/local/bin/composer
 sudo apt-get install ruby rubygems ruby-dev sqlite3 libsqlite3-dev
 sudo gem install mailcatcher
 
+#start it now
+/usr/bin/env $(which mailcatcher) --ip=0.0.0.0
+# Configure PHP to use Mailcatcher
+sudo sed -i '/;sendmail_path =/c sendmail_path = "/usr/bin/env $(which catchmail)"' /etc/php5/apache2/php.ini
+
+
 
